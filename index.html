@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neumorphic Todo List</title>
+    <meta name="description" content="Neumorphic, accessible todo list built with Spec Kit principles" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-labelledby="app-title">
+      <section class="todo-card" role="region" aria-describedby="app-description">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow" id="app-description">Spec-driven · Local-first · Keyboard-friendly</p>
+            <h1 id="app-title">Neumorphic Todo</h1>
+          </div>
+          <p class="remaining" aria-live="polite" id="remainingLabel">0 items left</p>
+        </header>
+
+        <form id="todoForm" class="todo-form" aria-label="Add a new todo">
+          <label class="sr-only" for="todo-input">Add a todo</label>
+          <input
+            id="todo-input"
+            name="todo"
+            type="text"
+            autocomplete="off"
+            placeholder="What needs to get done?"
+            maxlength="240"
+            required
+          />
+          <button type="submit" class="primary">Add</button>
+        </form>
+
+        <div class="bulk-actions">
+          <button type="button" id="toggleAll" class="ghost" aria-live="off">Toggle all</button>
+          <button type="button" id="clearCompleted" class="ghost" disabled>Clear completed</button>
+        </div>
+
+        <div class="filters" role="radiogroup" aria-label="Filter todos">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="active" aria-pressed="false">Active</button>
+          <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+
+        <ul id="todoList" class="todo-list" role="list" aria-live="polite" aria-label="Todo items"></ul>
+
+        <p class="status-line" aria-live="polite" id="statusMessage" role="status"></p>
+      </section>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
